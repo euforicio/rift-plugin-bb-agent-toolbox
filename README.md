@@ -1,0 +1,59 @@
+# BB Agent Toolbox
+
+Exposes bb SDK surfaces to agents as **provider-independent agent tools** via
+`bb.agents.registerTool` + `bb.agents.contributeInstructions`. The tools are
+injected into the sessions of **any** provider (opencode, Prime Agent's ACP
+provider, etc.), so an agent can act inside bb: threads, projects, workspace
+files, and terminals.
+
+The transport between bb and a provider is untouched — this plugin only adds
+bb surfaces as tools. Disable or remove it and agents return to stock
+behaviour.
+
+## Tools
+
+- **Threads** (`bbtools_threads_list` / `bbtools_thread_get` / `bbtools_thread_send` / `bbtools_thread_spawn` / `bbtools_thread_search`)
+  — inspect, message, and create bb threads to coordinate, delegate, or hand
+  off work between agents.
+- **Projects & workspace** (`bbtools_projects_list` / `bbtools_workspace_list` / `bbtools_workspace_read` / `bbtools_workspace_write` / `bbtools_workspace_mkdir`)
+  — orient across projects and read/write workspace files (confined to the
+  thread's workspace root).
+- **Terminals** (`bbtools_terminals_list`) — see running bb terminal sessions.
+
+> Shared memory is intentionally **not** included: the built-in Memory plugin
+> already provides durable `bb_memory_*` agent tools (plus a CLI and UI). This
+> toolbox stays focused on what is otherwise missing.
+
+## Settings
+
+Each tool group can be toggled with `bb plugin config bb-agent-toolbox`:
+
+- `enableThreads` (default `true`)
+- `enableWorkspace` (default `true`)
+- `enableTerminals` (default `true`)
+
+Settings are read once per load — reload the plugin after changing one
+(`bb plugin reload bb-agent-toolbox`).
+
+## CLI
+
+```bash
+bb bb-agent-toolbox status   # tool groups + enabled state (+ --json)
+```
+
+## Design notes
+
+- Names use a `bbtools_` prefix to avoid colliding with other plugins' agent
+  tools (e.g. the built-in Memory plugin's `bb_memory_*`).
+- Workspace tools resolve the current thread's host and workspace root at
+  call time and pass `rootPath` to confine reads/writes to the project.
+- Errors are caught and returned as text so the agent sees them instead of the
+  call failing.
+
+## Development
+
+```bash
+npm install
+bb plugin build .
+bb plugin install . --yes
+```

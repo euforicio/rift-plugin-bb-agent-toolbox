@@ -1,0 +1,26 @@
+{
+  "name": "bb-plugin-bb-agent-toolbox",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "bb": ">=0.40",
+    "bbPluginSdk": ">=0.4.21"
+  },
+  "bb": {
+    "name": "BB Agent Toolbox",
+    "description": "Give any coding agent — opencode, Prime Agent, Google Antigravity, Codex, Claude Code, and more — hands-on access to bb: read and edit workspace files, inspect and message other threads, delegate work by spawning threads, and see running terminals. All as tools the agent can call directly, whatever provider or model (incl. OpenRouter) it runs on.",
+    "branding": {
+      "icon": "./icons/bb-agent-toolbox.svg"
+    },
+    "server": "./server.ts"
+  },
+  "dependencies": {
+    "@get-bb/plugin-sdk": "0.4.21",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
