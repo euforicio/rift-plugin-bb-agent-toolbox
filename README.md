@@ -12,13 +12,15 @@ behaviour.
 
 ## Tools
 
-- **Threads** (`bbtools_threads_list` / `bbtools_thread_get` / `bbtools_thread_send` / `bbtools_thread_spawn` / `bbtools_thread_search`)
-  — inspect, message, and create bb threads to coordinate, delegate, or hand
-  off work between agents.
+- **Threads** (`bbtools_threads_list` / `bbtools_thread_get` / `bbtools_thread_outline` / `bbtools_thread_send` / `bbtools_thread_spawn` / `bbtools_thread_stop` / `bbtools_thread_archive` / `bbtools_thread_search`)
+  — inspect, message, create, stop, archive, and read bb threads to coordinate,
+  delegate, or hand off work between agents.
 - **Projects & workspace** (`bbtools_projects_list` / `bbtools_workspace_list` / `bbtools_workspace_read` / `bbtools_workspace_write` / `bbtools_workspace_mkdir`)
   — orient across projects and read/write workspace files (confined to the
   thread's workspace root).
-- **Terminals** (`bbtools_terminals_list`) — see running bb terminal sessions.
+- **Terminals** (`bbtools_terminals_list` / `bbtools_terminal_create` / `bbtools_terminal_output` / `bbtools_terminal_input` / `bbtools_terminal_close`)
+  — create, watch (read output), drive (type commands), and close bb terminal
+  sessions the user can watch live in the bb UI.
 
 > Shared memory is intentionally **not** included: the built-in Memory plugin
 > already provides durable `bb_memory_*` agent tools (plus a CLI and UI). This

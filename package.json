@@ -1,11 +1,11 @@
 {
   "name": "bb-plugin-bb-agent-toolbox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "license": "MIT",
   "engines": {
-    "bb": ">=0.40",
-    "bbPluginSdk": ">=0.4.21"
+    "bb": ">=0.42",
+    "bbPluginSdk": ">=0.4.45"
   },
   "bb": {
     "name": "BB Agent Toolbox",
@@ -16,7 +16,7 @@
     "server": "./server.ts"
   },
   "dependencies": {
-    "@get-bb/plugin-sdk": "0.4.21",
+    "@get-bb/plugin-sdk": "^0.4.47",
     "zod": "^4.3.6"
   },
   "devDependencies": {
