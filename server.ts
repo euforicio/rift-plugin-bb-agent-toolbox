@@ -14,10 +14,10 @@
 // Memory plugin already provides durable bb_memory_* agent tools (and a CLI +
 // UI). This toolbox stays focused on what is otherwise missing: threads,
 // workspace, and terminals.
-import { type BbPluginApi } from "@get-bb/plugin-sdk";
+import { type RiftPluginApi } from "@riftlabs/plugin-sdk";
 import { z } from "zod";
 
-export default async function plugin(bb: BbPluginApi) {
+export default async function plugin(bb: RiftPluginApi) {
   bb.log.info("loaded");
 
   // ---- Settings ----------------------------------------------------------

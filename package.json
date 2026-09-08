@@ -1,13 +1,16 @@
 {
-  "name": "bb-plugin-bb-agent-toolbox",
+  "name": "rift-plugin-bb-agent-toolbox",
+  "homepage": "https://riftlabs.app",
+  "author": "Rift Labs",
+  "repository": { "type": "git", "url": "https://github.com/euforicio/rift-plugin-bb-agent-toolbox.git" },
   "version": "0.1.1",
   "type": "module",
   "license": "MIT",
   "engines": {
-    "bb": ">=0.42",
-    "bbPluginSdk": ">=0.4.45"
+    "rift": ">=0.1.0",
+    "riftPluginSdk": ">=0.4.48"
   },
-  "bb": {
+  "rift": {
     "name": "BB Agent Toolbox",
     "description": "Give any coding agent — opencode, Prime Agent, Google Antigravity, Codex, Claude Code, and more — hands-on access to bb: read and edit workspace files, inspect and message other threads, delegate work by spawning threads, and see running terminals. All as tools the agent can call directly, whatever provider or model (incl. OpenRouter) it runs on.",
     "branding": {
@@ -16,10 +19,10 @@
     "server": "./server.ts"
   },
   "dependencies": {
-    "@get-bb/plugin-sdk": "^0.4.47",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@riftlabs/plugin-sdk": "0.4.48",
     "@types/node": "^22.0.0",
     "typescript": "^5.7.0"
   }
